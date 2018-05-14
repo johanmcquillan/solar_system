@@ -27,6 +27,14 @@
         </jar>
     </target>
 
+    <target name="run" depends="compile">
+        <java classname="${main.class}" fork="true">
+            <classpath>
+                <pathelement path="${bin}"/>
+            </classpath>
+        </java>
+    </target>
+
     <target name="clean">
         <delete dir="${bin}"/>
         <delete dir="${dist}"/>
