@@ -22,6 +22,7 @@
         <jar jarfile="${dist}/lib/solar_system_${DSTAMP}.jar" basedir="${bin}">
             <manifest>
                 <attribute name="Main-Class" value="${main.class}"/>
+                <attribute name="Version" value="1.0"/>
             </manifest>
         </jar>
     </target>
