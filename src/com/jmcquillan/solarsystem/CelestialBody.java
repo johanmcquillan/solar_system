@@ -43,22 +43,22 @@ public class CelestialBody {
      * where ' indicates the first derivative
      * with respect to time, and '' the second.
      */
-    public void Increment() {
+    public void increment() {
         // Calculate acceleration as given in the javadoc
         double rDDot = this.r * this.thetaDot * this.thetaDot - MG / (this.r*this.r);
         double thetaDDot = -2 * this.rDot * this.thetaDot / r;
         
-        // Increment velocities
+        // increment velocities
 		this.rDot = this.rDot + rDDot * dt;
 		this.thetaDot = this.thetaDot + thetaDDot * dt;
         
-        // Increment position
+        // increment position
 		this.r = this.r + this.rDot * dt;
 		this.theta = this.theta + this.thetaDot * dt;
     }
 
     /** Set new time interval in years **/
-    public static void SetDeltaTime(double dt) {CelestialBody.dt = dt;}
+    public static void setDeltaTime(double dt) {CelestialBody.dt = dt;}
     
     /** Getter method for orbiter name **/
     public String getName() {return this.name;}

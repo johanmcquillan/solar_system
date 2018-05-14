@@ -30,16 +30,16 @@ public class CelestialPlanet extends CelestialBody {
      * This is because CelestialBody objects may not be doing complete orbits, whereas planets are.
      * If theta is unconstrained, after a certain number of orbits it will be too big to store.
      */
-    public void Increment() {
+    public void increment() {
         // Calculate acceleration as given in the javadoc
         double rDDot = this.r * this.thetaDot * this.thetaDot - MG / (this.r*this.r);
         double thetaDDot = -2 * this.rDot * this.thetaDot / this.r;
 
-        // Increment velocity
+        // increment velocity
 		this.rDot = this.rDot + rDDot * dt;
 		this.thetaDot = this.thetaDot + thetaDDot * dt;
         
-        // Increment position
+        // increment position
 		this.r = this.r + this.rDot * dt;
 		this.theta = this.theta + this.thetaDot * dt;
         

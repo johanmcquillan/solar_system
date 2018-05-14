@@ -33,7 +33,7 @@ public class SolarPanel extends JPanel implements ActionListener {
 
     public SolarPanel(int width, int height) {
         setPreferredSize(new Dimension(width, height));
-        CelestialBody.SetDeltaTime(dt);
+        CelestialBody.setDeltaTime(dt);
 
         // Initialise toggleable booleans
         this.names = true;
@@ -68,7 +68,7 @@ public class SolarPanel extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent event) {
         this.t += dt;
         // Loop over all bodies and calculate new positions
-        for (CelestialBody C : celestials) C.Increment();
+        for (CelestialBody C : celestials) C.increment();
         repaint();
     }
 
