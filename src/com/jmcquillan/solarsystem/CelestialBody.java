@@ -1,7 +1,6 @@
 package com.jmcquillan.solarsystem;
 
 import java.awt.Color;
-import java.awt.geom.Ellipse2D;
 
 /** Models a celestial object interacting with the sun.
  * Uses polar coordinates and Lagrangian mechanics to simulate motion.
