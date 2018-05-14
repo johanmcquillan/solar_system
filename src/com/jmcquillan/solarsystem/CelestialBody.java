@@ -11,9 +11,9 @@ public class CelestialBody {
     protected int size;
     protected String name;
     protected double r;
-    protected double rdot;
+    protected double rDot;
     protected double theta;
-    protected double thetadot;
+    protected double thetaDot;
     protected Color colour;
     protected static double dt; // Time step in years
     protected static final double MG = 39.42; // Solar Mass * Gravitational Constant in au^3/yr^2
@@ -21,14 +21,14 @@ public class CelestialBody {
     protected static final double SEC_IN_YEAR = 3.154E7; // Number of seconds in a year
     
     /** Constructor **/
-    public CelestialBody(String Name, double R, double Rdot, double Theta, double Thetadot, Color Colour, int Size) {
+    public CelestialBody(String Name, double r, double rDot, double theta, double thetaDot, Color colour, int size) {
         this.name = Name;
-        this.r = R;
-        this.rdot = Rdot;
-        this.theta = Theta;
-        this.thetadot = Thetadot;
-        this.colour = Colour;
-        this.size = Size;
+        this.r = r;
+        this.rDot = rDot;
+        this.theta = theta;
+        this.thetaDot = thetaDot;
+        this.colour = colour;
+        this.size = size;
     }
     
     /** Calculates new position and velocity.
@@ -45,37 +45,38 @@ public class CelestialBody {
      */
     public void Increment() {
         // Calculate acceleration as given in the javadoc
-        double rdotdot = r*thetadot*thetadot - MG / (r*r);
-        double thetadotdot = -2*rdot*thetadot / r;
+        double rDDot = this.r * this.thetaDot * this.thetaDot - MG / (this.r*this.r);
+        double thetaDDot = -2 * this.rDot * this.thetaDot / r;
         
         // Increment velocities
-        rdot = rdot + rdotdot * dt;
-        thetadot = thetadot + thetadotdot * dt;
+		this.rDot = this.rDot + rDDot * dt;
+		this.thetaDot = this.thetaDot + thetaDDot * dt;
         
         // Increment position
-        r = r + rdot * dt;
-        theta = theta + thetadot * dt;
+		this.r = this.r + this.rDot * dt;
+		this.theta = this.theta + this.thetaDot * dt;
     }
 
     /** Set new time interval in years **/
-    public static void SetDeltaTime(double DT) {CelestialBody.dt = DT;}
+    public static void SetDeltaTime(double dt) {CelestialBody.dt = dt;}
     
     /** Getter method for orbiter name **/
-    public String getName() {return name;}
+    public String getName() {return this.name;}
     
     /** Getter method for orbiter position in Cartesian **/
-    public double getX() {return (r*Math.cos(theta));}
-    public double getY() {return (r*Math.sin(theta));}
+    public double getX() {return (this.r*Math.cos(this.theta));}
+    public double getY() {return (this.r*Math.sin(this.theta));}
     
     /** Getter method for orbiter distance from sun **/
-    public double getR() {return r;}
+    public double getR() {return this.r;}
     
     /** Getter method for orbiter speed in km/s **/
-    public double getV() {return Math.sqrt((Math.pow(rdot*AU/SEC_IN_YEAR,2) + (Math.pow(thetadot*r*AU/SEC_IN_YEAR,2))));}
+    public double getV() {return Math.sqrt((Math.pow(this.rDot *AU/SEC_IN_YEAR, 2) +
+										   (Math.pow(this.thetaDot * this.r*AU/SEC_IN_YEAR, 2))));}
     
     /** Getter method for orbiter size on panel display **/
-    public int getSize() {return size;}
+    public int getSize() {return this.size;}
     
     /** Getter method for orbiter colour **/
-    public Color getColour() {return colour;}
+    public Color getColour() {return this.colour;}
 }

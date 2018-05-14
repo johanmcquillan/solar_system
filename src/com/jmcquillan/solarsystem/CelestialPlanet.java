@@ -10,8 +10,8 @@ import java.awt.Color;
 public class CelestialPlanet extends CelestialBody {
 
     /** Constructor **/
-    public CelestialPlanet(String Name, double R, double Rdot, double Theta, double Thetadot, Color Colour, int Size) {
-        super(Name, R, Rdot, Theta, Thetadot, Colour, Size);
+    public CelestialPlanet(String name, double r, double rDot, double theta, double thetaDot, Color colour, int size) {
+        super(name, r, rDot, theta, thetaDot, colour, size);
     }
     
     /** Calculates new position and velocity.
@@ -32,19 +32,19 @@ public class CelestialPlanet extends CelestialBody {
      */
     public void Increment() {
         // Calculate acceleration as given in the javadoc
-        double rdotdot = r*thetadot*thetadot - MG / (r*r);
-        double thetadotdot = -2*rdot*thetadot / r;
+        double rDDot = this.r * this.thetaDot * this.thetaDot - MG / (this.r*this.r);
+        double thetaDDot = -2 * this.rDot * this.thetaDot / this.r;
 
         // Increment velocity
-        rdot = rdot + rdotdot * dt;
-        thetadot = thetadot + thetadotdot * dt;
+		this.rDot = this.rDot + rDDot * dt;
+		this.thetaDot = this.thetaDot + thetaDDot * dt;
         
         // Increment position
-        r = r + rdot * dt;
-        theta = theta + thetadot * dt;
+		this.r = this.r + this.rDot * dt;
+		this.theta = this.theta + this.thetaDot * dt;
         
         // Correct if theta is not between 0 and 2*pi
-        double n = theta / Math.PI;
-        if ((n > 2) || (n < 0)) theta = theta - theta * (n-1);
+        double n = this.theta / Math.PI;
+        if ((n > 2) || (n < 0)) this.theta = this.theta - this.theta * (n-1);
     }
 }
