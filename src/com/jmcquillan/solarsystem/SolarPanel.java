@@ -15,8 +15,8 @@ import javax.swing.Timer;
 /** 2D animation of the solar system.
  * Distances are in astronomical units.
  * Times are in years.
- * @author Johan
  *
+ * @author Johan G. McQuillan
  */
 public class SolarPanel extends JPanel implements ActionListener {
     private ArrayList<CelestialBody> celestials = new ArrayList<CelestialBody>();
@@ -62,7 +62,11 @@ public class SolarPanel extends JPanel implements ActionListener {
         animationTimer.start();
     }
 
-    /** Scales coordinates for display on the screen **/
+    /** Scale a Cartesian coordinate for display on the screen.
+     *
+     * @param x Coordinate to scale.
+     * @return Scaled coordinate ie. pixel.
+     */
     public int scale(double x) {return (int) (scaler * getHeight()/7 * x);}
 
     public void actionPerformed(ActionEvent event) {
@@ -120,13 +124,16 @@ public class SolarPanel extends JPanel implements ActionListener {
         if (this.names) g2.drawString("Sol", 10, -10);
     }
 
-    /** Start the animation */
+    /** Start the animation. */
     public void start() {this.animationTimer.start();}
 
-    /** Stop the animation */
+    /** Stop the animation. */
     public void stop() {this.animationTimer.stop();}
 
-    /** Set new animation delay **/
+    /** Set new animation delay.
+     *
+     * @param delay New delay
+     */
     public void setDelay(int delay) {
         this.animationTimer.stop();
         this.animationTimer.setDelay(delay);
@@ -135,7 +142,8 @@ public class SolarPanel extends JPanel implements ActionListener {
     }
 
     /** Set new animation scale
+     *
      * @param s New scaler, as a percentage
-    **/
-    public void setScale(int s) {scaler = 0.01*s;}
+     */
+    public void setScale(int s) {this.scaler = 0.01*s;}
 }

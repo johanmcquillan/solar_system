@@ -8,9 +8,13 @@ import javax.swing.*;
 /** JPanel containing some lines and text. */
 public class LinesPanel extends JPanel {
     
-    /** Constructor just sets size of panel. */
+    /** Constructor for LinesPanel.
+     *
+     * @param width Width in pixels.
+     * @param height Height in pixels.
+     */
     public LinesPanel(int width, int height) {
-        setPreferredSize(new Dimension(width,height));
+        setPreferredSize(new Dimension(width, height));
     }
     
     /**

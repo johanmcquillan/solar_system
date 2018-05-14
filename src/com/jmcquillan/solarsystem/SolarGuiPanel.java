@@ -82,7 +82,7 @@ public class SolarGuiPanel extends JPanel implements ActionListener, ChangeListe
         add(this.solarPanel);
         add(buttonPanel);
     }
-    /** Respond to button clicks */
+    /** Respond to button clicks. */
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == this.startButton) start();
         else if (e.getSource() == this.stopButton) stop();
@@ -91,21 +91,21 @@ public class SolarGuiPanel extends JPanel implements ActionListener, ChangeListe
         else if (e.getSource() == this.detailButton) toggleDetails();
         else if (e.getSource() == this.exitButton) System.exit(0);
     }
-    /** Start animation when applet is started */
+    /** Start animation when applet is started. */
     public void start() {this.solarPanel.start();}
-    /** Stop animation when applet is stopped */
+    /** Stop animation when applet is stopped. */
     public void stop() {this.solarPanel.stop();}
 
-    /** Toggles the display of names in the solarPanel **/
+    /** Toggles the display of names in the solarPanel. **/
     public void toggleNames() {this.solarPanel.names = ! this.solarPanel.names;}
     
-    /** Toggles the display of radial lines in the solarPanel **/
+    /** Toggles the display of radial lines in the solarPanel. **/
     public void toggleRadii() {this.solarPanel.radii = ! this.solarPanel.radii;}
 
-    /** Toggles the display of orbital speed and radius in the solarPanel **/
+    /** Toggles the display of orbital speed and radius in the solarPanel. **/
     public void toggleDetails() {this.solarPanel.details = ! this.solarPanel.details;}
 
-    /** Respond to slider changes **/
+    /** Respond to slider changes. **/
     public void stateChanged(ChangeEvent e) {
         if (e.getSource() == this.delaySlider) this.solarPanel.setDelay(this.delaySlider.getValue());
         else if (e.getSource() == this.scaleSlider) this.solarPanel.setScale(this.scaleSlider.getValue());

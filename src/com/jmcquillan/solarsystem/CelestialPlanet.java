@@ -5,11 +5,21 @@ import java.awt.Color;
 /** Models a planet performing complete orbits about the sun.
  * Uses polar coordinates and Lagrangian mechanics to simulate motion.
  * All calculations in astronomical units and years.
- * @author Johan
+ * @author Johan G. McQuillan
  */
 public class CelestialPlanet extends CelestialBody {
 
-    /** Constructor **/
+    /** Constructor for CelestialBody.
+     * @param name Name of the body.
+     * @param r Initial distance from the Sun in AU.
+     * @param rDot Initial radial velocity in AU/year.
+     * @param theta Initial angle in rad.
+     *              0 is measured directly above the Sun.
+     *              Theta increases anti-clockwise.
+     * @param thetaDot Initial angular velocity in rad/year.
+     * @param colour Colour of body.
+     * @param size Image size of body.
+     */
     public CelestialPlanet(String name, double r, double rDot, double theta, double thetaDot, Color colour, int size) {
         super(name, r, rDot, theta, thetaDot, colour, size);
     }

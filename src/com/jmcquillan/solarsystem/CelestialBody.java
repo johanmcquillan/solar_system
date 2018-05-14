@@ -5,7 +5,7 @@ import java.awt.Color;
 /** Models a celestial object interacting with the sun.
  * Uses polar coordinates and Lagrangian mechanics to simulate motion.
  * All calculations in astronomical units and years.
- * @author Johan
+ * @author Johan G. McQuillan
  */
 public class CelestialBody {
     protected int size;
@@ -20,9 +20,19 @@ public class CelestialBody {
     protected static final double AU = 1.496E8; // Astronomical Unit in km
     protected static final double SEC_IN_YEAR = 3.154E7; // Number of seconds in a year
     
-    /** Constructor **/
-    public CelestialBody(String Name, double r, double rDot, double theta, double thetaDot, Color colour, int size) {
-        this.name = Name;
+    /** Constructor for CelestialBody.
+     * @param name Name of the body.
+     * @param r Initial distance from the Sun in AU.
+     * @param rDot Initial radial velocity in AU/year.
+     * @param theta Initial angle in rad.
+     *              0 is measured directly above the Sun.
+     *              Theta increases anti-clockwise.
+     * @param thetaDot Initial angular velocity in rad/year.
+     * @param colour Colour of body.
+     * @param size Image size of body.
+     */
+    public CelestialBody(String name, double r, double rDot, double theta, double thetaDot, Color colour, int size) {
+        this.name = name;
         this.r = r;
         this.rDot = rDot;
         this.theta = theta;
@@ -57,26 +67,32 @@ public class CelestialBody {
 		this.theta = this.theta + this.thetaDot * dt;
     }
 
-    /** Set new time interval in years **/
+    /** Set new time interval.
+     * @param dt Time interval in years.
+     */
     public static void setDeltaTime(double dt) {CelestialBody.dt = dt;}
-    
-    /** Getter method for orbiter name **/
+
     public String getName() {return this.name;}
-    
-    /** Getter method for orbiter position in Cartesian **/
-    public double getX() {return (this.r*Math.cos(this.theta));}
-    public double getY() {return (this.r*Math.sin(this.theta));}
-    
-    /** Getter method for orbiter distance from sun **/
+
+    public int getSize() {return this.size;}
+
+    public Color getColour() {return this.colour;}
+
     public double getR() {return this.r;}
+
+    /** Get x Cartesian coordinate.
+     * @return Coordinate along x-axis in km.
+     */
+    public double getX() {return this.r * Math.cos(this.theta);}
+
+    /** Get y Cartesian coordinate.
+     * @return Coordinate along y-axis in km.
+     */
+    public double getY() {return this.r * Math.sin(this.theta);}
     
-    /** Getter method for orbiter speed in km/s **/
+    /** Get absolute speed of body.
+     * @return Speed in km/s.
+     */
     public double getV() {return Math.sqrt((Math.pow(this.rDot *AU/SEC_IN_YEAR, 2) +
 										   (Math.pow(this.thetaDot * this.r*AU/SEC_IN_YEAR, 2))));}
-    
-    /** Getter method for orbiter size on panel display **/
-    public int getSize() {return this.size;}
-    
-    /** Getter method for orbiter colour **/
-    public Color getColour() {return this.colour;}
 }

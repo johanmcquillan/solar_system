@@ -16,12 +16,12 @@ public class Lines extends JPanel {
         frame.setVisible(true); // Display the resulting frame
     }
 
-    /** Call method to create and display GUI. */
+    /** Call method to create and display GUI.
+     * @param args Not used.
+     */
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                createAndDisplayGui();
-            }
+            public void run() {createAndDisplayGui();}
         }
         );
     }
