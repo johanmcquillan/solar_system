@@ -5,6 +5,7 @@
 
     <property name="src" location="src/"/>
     <property name="bin" location="bin/"/>
+    <property name="docs" location="docs/"/>
     <property name="dist" location="dist/"/>
     <property name="main.class" value="com.jmcquillan.solarsystem.SolarSystem"/>
 
@@ -15,6 +16,7 @@
 
     <target name="compile" depends="init">
         <javac srcdir="${src}" destdir="${bin}" includeantruntime="false"/>
+        <javadoc sourcepath="${src}" destdir="${docs}" classpath="com.jmcquillan.solarsystem"/>
     </target>
 
     <target name="dist" depends="compile">
