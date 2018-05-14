@@ -97,22 +97,13 @@ public class SolarGuiPanel extends JPanel implements ActionListener, ChangeListe
     public void stop() {this.solarPanel.stop();}
 
     /** Toggles the display of names in the solarPanel **/
-    public void toggleNames() {
-        if (this.solarPanel.names) this.solarPanel.names = false;
-        else this.solarPanel.names = true;
-    }
+    public void toggleNames() {this.solarPanel.names = ! this.solarPanel.names;}
     
     /** Toggles the display of radial lines in the solarPanel **/
-    public void toggleRadii() {
-        if (this.solarPanel.radii) this.solarPanel.radii = false;
-        else this.solarPanel.radii = true;
-    }
+    public void toggleRadii() {this.solarPanel.radii = ! this.solarPanel.radii;}
 
     /** Toggles the display of orbital speed and radius in the solarPanel **/
-    public void toggleDetails() {
-        if (this.solarPanel.details) this.solarPanel.details = false;
-        else this.solarPanel.details = true;
-    }
+    public void toggleDetails() {this.solarPanel.details = ! this.solarPanel.details;}
 
     /** Respond to slider changes **/
     public void stateChanged(ChangeEvent e) {
