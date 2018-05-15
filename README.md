@@ -17,14 +17,14 @@ A simple Euler integration method is used to propagate the simulation through ti
 Only 2-body interactions between the sun and each body are considered. n-body interactions are a possible expansion, however the resulting chaotic behaviour would be incorrect unless an appropriate integration method is used, as explained above.
 
 Polar coordinates are the most natural coordinate system to use, with the Sun located at <img src="https://rawgit.com/johanmcquillan/solar_system/master/svgs/648bc95f900f2eb70957b396497d7a22.svg?invert_in_darkmode" align=middle width=37.903635pt height=21.10812pt/>. The kinetic and potential energies are 
-<p align="center"><img src="https://rawgit.com/johanmcquillan/solar_system/master/svgs/fd953720ded30d9b3a957eebc7ae1b53.svg?invert_in_darkmode" align=middle width=272.4117pt height=33.5874pt/></p>
+<p align="center"><img src="https://rawgit.com/johanmcquillan/solar_system/master/svgs/fb5dcfa89461b8ff9792a3be7243c690.svg?invert_in_darkmode" align=middle width=272.46945pt height=33.5874pt/></p>
 
 where <img src="https://rawgit.com/johanmcquillan/solar_system/master/svgs/5201385589993766eea584cd3aa6fa13.svg?invert_in_darkmode" align=middle width=12.876435pt height=22.38192pt/> is Newton's gravitational constant, <img src="https://rawgit.com/johanmcquillan/solar_system/master/svgs/fb97d38bcc19230b0acd442e17db879c.svg?invert_in_darkmode" align=middle width=17.67348pt height=22.38192pt/> is the mass of the Sun, and <img src="https://rawgit.com/johanmcquillan/solar_system/master/svgs/0e51a2dede42189d77627c4d742822c3.svg?invert_in_darkmode" align=middle width=14.379255pt height=14.10255pt/> is the mass of the orbiting body.
 
 The Lagrangian then becomes
 <p align="center"><img src="https://rawgit.com/johanmcquillan/solar_system/master/svgs/c643b091d079f2bda71de3496f8471b7.svg?invert_in_darkmode" align=middle width=205.5669pt height=57.313575pt/></p>
 and the two Euler-Lagrange equations,
-<p align="center"><img src="https://rawgit.com/johanmcquillan/solar_system/master/svgs/8ec6f48eb758dc0bbb451d244cb3c168.svg?invert_in_darkmode" align=middle width=271.5636pt height=39.30498pt/></p>
+<p align="center"><img src="https://rawgit.com/johanmcquillan/solar_system/master/svgs/77a2ed665fd96e62370e3d5c42a230fa.svg?invert_in_darkmode" align=middle width=278.0844pt height=39.30498pt/></p>
 yield the following equations of motion:
 <p align="center"><img src="https://rawgit.com/johanmcquillan/solar_system/master/svgs/ce9e6d1ef967576ad503650250376bf1.svg?invert_in_darkmode" align=middle width=228.11085pt height=37.671975pt/></p>
 These are then numerically integrated to simulate the orbital trajectory.

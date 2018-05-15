@@ -18,7 +18,7 @@ Only 2-body interactions between the sun and each body are considered. n-body in
 
 Polar coordinates are the most natural coordinate system to use, with the Sun located at $r = 0$. The kinetic and potential energies are 
 $$
-    T = \frac{m}{2}(r^2 + r^2\theta^2); \qquad
+    T = \frac{m}{2}(\dot{r}^2 + r^2\dot{\theta}^2); \qquad
     V = -\frac{GMm}{r};
 $$
 
@@ -34,7 +34,7 @@ $$
 and the two Euler-Lagrange equations,
 $$
     \frac{\mathop{}\!\mathrm{d}}{\mathop{}\!\mathrm{d} t} \left(\frac{\partial \mathcal{L}}{\partial \dot{r}}\right) = \frac{\partial \mathcal{L}}{\partial r}; \qquad
-    \frac{\mathop{}\!\mathrm{d}}{\mathop{}\!\mathrm{d} t} \left(\frac{\partial \mathcal{L}}{\partial \dot{\vartheta}}\right) = \frac{\partial \mathcal{L}}{\partial \vartheta}
+    \frac{\mathop{}\!\mathrm{d}}{\mathop{}\!\mathrm{d} t} \left(\frac{\partial \mathcal{L}}{\partial \dot{\vartheta}}\right) = \frac{\partial \mathcal{L}}{\partial \vartheta};
 $$
 yield the following equations of motion:
 $$
