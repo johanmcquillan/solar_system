@@ -8,17 +8,17 @@ An Apache build file is included, so the easiest way to run the app is to call `
 
 If you choose to compile this manually, note that the main class is ```com.jmcquillan.solarsystem.SolarSystem```.
 
-## Implementation
+## Mathematical Overview
 
 The mathematics used are relatively rudimentary.
 
 A simple Euler integration method is used to propagate the simulation through time. This leads to drift over long simulation lengths, as is most evidenced by observing Mercury, which crashes into the sun. The Verlet algorithm is known to have less drift for a periodic trajectory, and will be implemented (hopefully) soon.
 
-Only 2-body interactions between the sun and each body are considered. n-body interactions are a possible expansion, however the resulting chaotic behaviour would be incorrect unless an appropriate integration method is used, as explained above.
+Only 2-body interactions between the sun and each body are considered. $n$-body interactions are a possible expansion, however the resulting chaotic behaviour would be incorrect unless an appropriate integration method is used, as explained above.
 
 Polar coordinates are the most natural coordinate system to use, with the Sun located at $r = 0$. The kinetic and potential energies are 
 $$
-    T = \frac{m}{2}(\dot{r}^2 + r^2\dot{\theta}^2); \qquad
+    T = \frac{m}{2}\left(\dot{r}^2 + r^2\dot{\vartheta}^2\right); \qquad
     V = -\frac{GMm}{r};
 $$
 
@@ -28,7 +28,7 @@ The Lagrangian then becomes
 $$
     \begin{aligned}
         \mathcal{L} & = T - V, \\
-                    & = \frac{m}{2}(\dot{r}^2 + r^2\dot{\vartheta}^2) + \frac{GMm}{r},
+                    & = \frac{m}{2}\left( \dot{r}^2 + r^2\dot{\vartheta}^2 \right) + \frac{GMm}{r};
     \end{aligned}
 $$
 and the two Euler-Lagrange equations,
